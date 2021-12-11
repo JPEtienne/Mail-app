@@ -47,7 +47,7 @@ const EmailList: FC = () => {
         </div>
       </div>
       <div className="email-list__sections">
-        <Section Icon={InboxIcon} title="primary" color="red" selected />
+        <Section Icon={InboxIcon} title="Primary" color="#c04b37" selected />
         <Section Icon={PeopleIcon} title="Social" color="#1a73e8" />
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
       </div>

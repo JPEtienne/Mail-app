@@ -17,6 +17,10 @@
 }
 
 .sidebar__footer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar__footerIcons .MuiSvgIcon-root {
+  font-size: 1.2rem;
 }

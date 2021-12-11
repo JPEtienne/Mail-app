@@ -23,3 +23,6 @@
   z-index: 999;
 }
 
+.email-list  .MuiSvgIcon-root {
+  font-size: 1.2rem;
+}

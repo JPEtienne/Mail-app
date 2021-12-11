@@ -9,7 +9,7 @@ import './Header.css'
 
 interface IHeaderProps {}
 
-const Header: FC<IHeaderProps> = (props) => {
+const Header: FC<IHeaderProps> = () => {
   return (
     <div className="header">
       <div className="header__left">

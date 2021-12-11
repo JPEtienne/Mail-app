@@ -1,6 +1,6 @@
 import { OverridableComponent } from '@mui/material/OverridableComponent'
 import { SvgIconTypeMap } from '@mui/material'
-import * as React from 'react'
+import { FC } from 'react'
 import './Section.css'
 
 interface ISectionProps {
@@ -10,7 +10,7 @@ interface ISectionProps {
   selected?: boolean
 }
 
-const Section: React.FunctionComponent<ISectionProps> = ({
+const Section: FC<ISectionProps> = ({
   Icon,
   title,
   color,

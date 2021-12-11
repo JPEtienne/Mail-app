@@ -3,6 +3,10 @@
   background: whitesmoke;
 }
 
+.mail .MuiSvgIcon-root {
+  font-size: 1.2rem;
+} 
+
 .mail__tools {
   display: flex;
   justify-content: space-between;

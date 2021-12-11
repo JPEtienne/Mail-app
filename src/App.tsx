@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import EmailList from './components/EmailList/EmailList'
+import SendMail from './components/SendMail/SendMail'
 import Sidebar from './components/Sidebar/Sidebar'
 import Header from './components/Header/Header'
 import Mail from './components/Mail/Mail'
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" component={EmailList} />
           </Switch>
         </div>
+        <SendMail />
       </div>
     </Router>
   )
