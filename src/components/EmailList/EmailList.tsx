@@ -12,6 +12,7 @@ import RedoIcon from '@mui/icons-material/Redo'
 import Section from '../Section/Section'
 import { FC } from 'react'
 import './EmailList.css'
+import EmailRow from './EmailRow/EmailRow'
 
 interface IEmailListProps {}
 
@@ -50,6 +51,13 @@ const EmailList: FC<IEmailListProps> = (props) => {
         <Section Icon={InboxIcon} title="primary" color="red" selected />
         <Section Icon={PeopleIcon} title="Social" color="#1a73e8" />
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
+      </div>
+
+      <div className="email-list__list">
+        <EmailRow title="Subject title"
+        subject="Hello this is a subject"
+        description="This is a description ..."
+        time="11:13am"/>
       </div>
     </div>
   )
