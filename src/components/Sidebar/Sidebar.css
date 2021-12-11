@@ -2,6 +2,7 @@
   flex: 0.3;
   max-width: 15rem;
   padding-right: 1rem;
+  min-width: 9rem;
 }
 
 .sidebar__compose {
