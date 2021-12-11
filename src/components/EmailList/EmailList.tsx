@@ -14,9 +14,8 @@ import { FC } from 'react'
 import './EmailList.css'
 import EmailRow from './EmailRow/EmailRow'
 
-interface IEmailListProps {}
 
-const EmailList: FC<IEmailListProps> = (props) => {
+const EmailList: FC = () => {
   return (
     <div className="email-list">
       <div className="email-list__settings">
@@ -54,10 +53,12 @@ const EmailList: FC<IEmailListProps> = (props) => {
       </div>
 
       <div className="email-list__list">
-        <EmailRow title="Subject title"
-        subject="Hello this is a subject"
-        description="This is a description ..."
-        time="11:13am"/>
+        <EmailRow
+          title="Subject title"
+          subject="Hello this is a subject"
+          description="This is a description ..."
+          time="11:13am"
+        />
       </div>
     </div>
   )
