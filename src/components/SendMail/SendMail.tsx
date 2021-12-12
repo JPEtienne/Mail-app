@@ -1,17 +1,21 @@
 import { closeSendMessage } from '../../features/mailSlice'
 import CloseIcon from '@mui/icons-material/Close'
+import firebase from 'firebase/compat/app'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { Button } from '@mui/material'
+import { db } from '../../firebase'
 import { FC } from 'react'
 import './SendMail.css'
 
 interface ISendMailProps {}
 
-interface FormInputs {
+export interface FormInputs {
+  id?: string
   to: string
   subject: string
   message: string
+  timestamp?: string
 }
 
 const SendMail: FC<ISendMailProps> = () => {
@@ -20,7 +24,16 @@ const SendMail: FC<ISendMailProps> = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>()
-  const onSubmit = (data: FormInputs) => console.log(data)
+  const onSubmit = (data: FormInputs) => {
+    console.log(data)
+    db.collection('emails').add({
+      to: data.to,
+      subject: data.subject,
+      message: data.message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    })
+    dispatch(closeSendMessage())
+  }
   const dispatch = useDispatch()
   return (
     <div className="send-mail">
@@ -34,7 +47,7 @@ const SendMail: FC<ISendMailProps> = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          type="text"
+          type="email"
           placeholder={`${errors.to ? errors.to.message : 'To'}`}
           {...register('to', { required: 'To is required' })}
           className={errors.to && 'send-mail__error'}
