@@ -1,0 +1,26 @@
+.sidebar {
+  flex: 0.3;
+  max-width: 15rem;
+  padding-right: 1rem;
+  min-width: 9rem;
+}
+
+.sidebar__compose {
+  margin-top: 0.75rem !important;
+  margin-left: 0.5rem !important;
+  color: grey !important;
+  margin-bottom: 0.75rem !important;
+  padding: 0.75rem !important;
+  border-radius: 30px !important;
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.75);
+  text-transform: none !important;
+}
+
+.sidebar__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar__footerIcons .MuiSvgIcon-root {
+  font-size: 1.2rem;
+}

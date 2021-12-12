@@ -1,0 +1,71 @@
+.send-mail {
+  position: absolute;
+  bottom: 0;
+  right: 2.5rem;
+  background: #404040;
+  width: 40%;
+  min-width: 20rem;
+  max-width: 27rem;
+  height: 40%;
+  min-height: 25rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid whitesmoke;
+  box-shadow: 0 5px 7px 0px rgba(0, 0, 0, 0.74);
+  overflow-y: hidden;
+  z-index: 9999;
+}
+
+.send-mail__header {
+  padding: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+}
+
+.send-mail__header > h3 {
+  color: whitesmoke;
+  font-size: 0.6rem;
+}
+
+.send-mail__send {
+  background: #3079ed !important;
+  text-transform: capitalize !important;
+  margin: 0.75rem !important;
+  color: white !important;
+  min-height: 50px;
+}
+
+.send-mail__close {
+  cursor: pointer;
+}
+
+.send-mail > form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.send-mail > form > input,
+.send-mail > form > textarea {
+  font-family: var(--font);
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  outline: none;
+  height: 1.5rem;
+}
+.send-mail > form > textarea {
+  resize: none;
+}
+
+.send-mail__error::placeholder {
+  color: red;
+}
+
+.send-mail__message {
+  flex: 1;
+}
