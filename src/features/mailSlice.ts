@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+import { RootState } from '../app/store'
 
 export interface MailState {
   sendMessageIsOpen: boolean
@@ -12,17 +13,18 @@ export const mailSlice = createSlice({
   name: 'mail',
   initialState,
   reducers: {
-    openSendMessage: ({ sendMessageIsOpen }) => {
-      sendMessageIsOpen = true
+    openSendMessage: (state) => {
+      state.sendMessageIsOpen = true
     },
-    closeSendMessage: ({ sendMessageIsOpen }) => {
-      sendMessageIsOpen = false
+    closeSendMessage: (state) => {
+      state.sendMessageIsOpen = false
     },
   },
 })
 
 export const { openSendMessage, closeSendMessage } = mailSlice.actions
 
-export const selectSendMessageIsOpen = (state: MailState) => state.sendMessageIsOpen
+export const selectSendMessageIsOpen = (state: RootState) =>
+  state.mail.sendMessageIsOpen
 
 export default mailSlice.reducer

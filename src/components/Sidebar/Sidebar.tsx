@@ -1,6 +1,7 @@
 import LabelImportantIcon from '@mui/icons-material/LabelImportant'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { openSendMessage } from '../../features/mailSlice'
 import SidebarOption from './SidebarOption/SidebarOption'
 import PersonIcon from '@mui/icons-material/Person'
 import NearMeIcon from '@mui/icons-material/NearMe'
@@ -11,15 +12,19 @@ import NoteIcon from '@mui/icons-material/Note'
 import StarIcon from '@mui/icons-material/Star'
 import DuoIcon from '@mui/icons-material/Duo'
 import AddIcon from '@mui/icons-material/Add'
+import { useDispatch } from 'react-redux'
 import { FC } from 'react'
 import './Sidebar.css'
 
 interface ISidebarProps {}
 
 const Sidebar: FC<ISidebarProps> = () => {
+  const dispatch = useDispatch()
+
   return (
     <div className="sidebar">
       <Button
+        onClick={() => dispatch(openSendMessage())}
         startIcon={<AddIcon fontSize="large" />}
         className="sidebar__compose"
       >
