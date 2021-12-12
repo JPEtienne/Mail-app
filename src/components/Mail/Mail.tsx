@@ -5,6 +5,7 @@ import WatchLaterIcon from '@mui/icons-material/WatchLater'
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { selectOpenMail } from '../../features/mailSlice'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import DeleteIcon from '@mui/icons-material/Delete'
 import PrintIcon from '@mui/icons-material/Print'
@@ -12,6 +13,7 @@ import ErrorIcon from '@mui/icons-material/Error'
 import EmailIcon from '@mui/icons-material/Email'
 import { useHistory } from 'react-router-dom'
 import { IconButton } from '@mui/material'
+import { useSelector } from 'react-redux'
 import { FC } from 'react'
 import './Mail.css'
 
@@ -19,6 +21,7 @@ interface IMailProps {}
 
 const Mail: FC<IMailProps> = () => {
   const history = useHistory()
+  const selectedMail = useSelector(selectOpenMail)
   return (
     <div className="mail">
       <div className="mail__tools">
@@ -65,13 +68,13 @@ const Mail: FC<IMailProps> = () => {
       </div>
       <div className="mail__body">
         <div className="mail__body-header">
-          <h2>Subject</h2>
+          <h2>{selectedMail?.subject}</h2>
           <LabelImportantIcon className="mail__important" />
-          <p>Title</p>
-          <p className="mail__time">11:13am</p>
+          <p>{selectedMail?.title}</p>
+          <p className="mail__time">{selectedMail?.time}</p>
         </div>
         <div className="mail__message">
-          <p>This is a message</p>
+          <p>{selectedMail?.description}</p>
         </div>
       </div>
     </div>

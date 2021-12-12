@@ -15,7 +15,6 @@ export interface FormInputs {
   to: string
   subject: string
   message: string
-  timestamp?: string
 }
 
 const SendMail: FC<ISendMailProps> = () => {

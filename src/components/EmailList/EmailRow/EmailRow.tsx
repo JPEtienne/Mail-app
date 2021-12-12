@@ -4,13 +4,15 @@ import { Checkbox, IconButton } from '@mui/material'
 import { useHistory } from 'react-router-dom'
 import { FC } from 'react'
 import './EmailRow.css'
+import { useDispatch } from 'react-redux'
+import { selectMail } from '../../../features/mailSlice'
 
 interface IEmailRowProps {
-  id?: string
+  id: string
   title: string
   subject: string
   description: string
-  time: string
+  time: any
 }
 
 const EmailRow: FC<IEmailRowProps> = ({
@@ -21,8 +23,23 @@ const EmailRow: FC<IEmailRowProps> = ({
   time,
 }) => {
   const history = useHistory()
+  const dispatch = useDispatch()
+
+  const openMail = () => {
+    dispatch(
+      selectMail({
+        id,
+        title,
+        subject,
+        description,
+        time,
+      })
+    )
+    history.push('/mail')
+  }
+
   return (
-    <div onClick={() => history.push('/mail')} className="email-row">
+    <div onClick={openMail} className="email-row">
       <div className="email-row__options">
         <Checkbox />
         <IconButton>

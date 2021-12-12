@@ -8,7 +8,6 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import { Checkbox, IconButton } from '@mui/material'
 import PeopleIcon from '@mui/icons-material/People'
 import InboxIcon from '@mui/icons-material/Inbox'
-import { FormInputs } from '../SendMail/SendMail'
 import RedoIcon from '@mui/icons-material/Redo'
 import EmailRow from './EmailRow/EmailRow'
 import Section from '../Section/Section'
@@ -18,9 +17,15 @@ import { useState } from 'react'
 import { FC } from 'react'
 import './EmailList.css'
 
+interface MailType {
+  to: string
+  subject: string
+  message: string
+  timestamp: any
+}
+
 const EmailList: FC = () => {
-  const [emailList, setEmailList] =
-    useState<{ id: string; data: FormInputs }[]>()
+  const [emailList, setEmailList] = useState<{ id: string; data: MailType }[]>()
 
   useEffect(() => {
     db.collection('emails')
@@ -32,7 +37,7 @@ const EmailList: FC = () => {
               ({
                 id: doc.id,
                 data: doc.data(),
-              } as { id: string; data: FormInputs })
+              } as { id: string; data: MailType })
           )
         )
       })
@@ -82,7 +87,7 @@ const EmailList: FC = () => {
             title={data.to}
             subject={data.subject}
             description={data.message}
-            time="11:13am"
+            time={new Date(data.timestamp?.seconds * 1000).toUTCString()}
           />
         ))}
       </div>
